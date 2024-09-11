@@ -38,3 +38,5 @@ class OrderPaymentWidget {
         }
     }
 }
+
+window.OrderPaymentWidget = OrderPaymentWidget;
