@@ -1,49 +1,52 @@
 // 외부 SDK 로드
 const tossPaymentsScript = document.createElement('script');
 tossPaymentsScript.src = "https://js.tosspayments.com/v2/standard";
-document.head.prependChild(tossPaymentsScript);
+document.head.appendChild(tossPaymentsScript);
 
-// OrderPaymentWidget 클래스 정의
-class OrderPaymentWidget {
-    // 결제위젯 객체 초기화
-    constructor(clientKey, customerKey) {
-        // sdk 초기화
-        tosspayments = TossPayments(clientKey);
-        this.widget = tosspayments.widgets({ customerKey });
-    }
+tossPaymentsScript.onload(function() {
 
-    // 결제금액 설정
-    setAmount(currency, amount) {
-        this.widget.setAmount({ value: amount, currency: currency });
-    }
-
-    // 결제위젯 UI 렌더링
-    async renderPaymentWidget(divId, variantKey) {
-        try {
-            return await this.widget.renderPaymentMethods({ selector: divId, variantKey: variantKey });
-        } catch (error) {
-            console.error('Failed to render payment widget:', error);
+    // OrderPaymentWidget 클래스 정의
+    class OrderPaymentWidget {
+        // 결제위젯 객체 초기화
+        constructor(clientKey, customerKey) {
+            // sdk 초기화
+            tosspayments = TossPayments(clientKey);
+            this.widget = tosspayments.widgets({ customerKey });
+        }
+    
+        // 결제금액 설정
+        setAmount(currency, amount) {
+            this.widget.setAmount({ value: amount, currency: currency });
+        }
+    
+        // 결제위젯 UI 렌더링
+        async renderPaymentWidget(divId, variantKey) {
+            try {
+                return await this.widget.renderPaymentMethods({ selector: divId, variantKey: variantKey });
+            } catch (error) {
+                console.error('Failed to render payment widget:', error);
+            }
+        }
+    
+        // 결제요청
+        requestPayment(orderId, orderName, successUrl, failUrl, taxFreeAmount, extraReqData) {
+            try {
+                this.widget.requestPayment({
+                    orderId: orderId,
+                    orderName: orderName,
+                    successUrl: successUrl,
+                    failUrl: failUrl,
+                    customerEmail: extraReqData.customerEmail,
+                    customerName: extraReqData.customerName,
+                    taxFreeAmount: taxFreeAmount
+                });
+            } catch (error) {
+                console.error('Payment request failed:', error);
+            }
         }
     }
-
-    // 결제요청
-    requestPayment(orderId, orderName, successUrl, failUrl, taxFreeAmount, extraReqData) {
-        try {
-            this.widget.requestPayment({
-                orderId: orderId,
-                orderName: orderName,
-                successUrl: successUrl,
-                failUrl: failUrl,
-                customerEmail: extraReqData.customerEmail,
-                customerName: extraReqData.customerName,
-                taxFreeAmount: taxFreeAmount
-            });
-        } catch (error) {
-            console.error('Payment request failed:', error);
-        }
-    }
-}
-
-// 전역에 OrderPaymentWidget 할당
-window.OrderPaymentWidget = OrderPaymentWidget;
-console.log('pgapp');
+    
+    // 전역에 OrderPaymentWidget 할당
+    window.OrderPaymentWidget = OrderPaymentWidget;
+    console.log('pgapp');
+});
