@@ -46,3 +46,4 @@ class OrderPaymentWidget {
 
 // 전역에 OrderPaymentWidget 할당
 window.OrderPaymentWidget = OrderPaymentWidget;
+console.log('pgapp');
