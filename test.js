@@ -1,7 +1,7 @@
 // 외부 SDK 로드
 const tossPaymentsScript = document.createElement('script');
 tossPaymentsScript.src = "https://js.tosspayments.com/v2/standard";
-document.head.appendChild(tossPaymentsScript);
+document.head.prependChild(tossPaymentsScript);
 
 // OrderPaymentWidget 클래스 정의
 class OrderPaymentWidget {
