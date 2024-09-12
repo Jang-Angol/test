@@ -3,7 +3,7 @@ const tossPaymentsScript = document.createElement('script');
 tossPaymentsScript.src = "https://js.tosspayments.com/v2/standard";
 document.head.appendChild(tossPaymentsScript);
 
-tossPaymentsScript.onload(function() {
+tossPaymentsScript.onload = function() {
 
     // OrderPaymentWidget 클래스 정의
     class OrderPaymentWidget {
@@ -49,4 +49,4 @@ tossPaymentsScript.onload(function() {
     // 전역에 OrderPaymentWidget 할당
     window.OrderPaymentWidget = OrderPaymentWidget;
     console.log('pgapp');
-});
+};
