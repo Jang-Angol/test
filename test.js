@@ -49,4 +49,11 @@ tossPaymentsScript.onload = function() {
     // 전역에 OrderPaymentWidget 할당
     window.OrderPaymentWidget = OrderPaymentWidget;
     console.log('pgapp');
+
+    const sdkLoadedEvent = new CustomEvent('EC_WIDGET_LOAD', {
+        detail: { message: 'TossPayments SDK loaded successfully' }
+    });
+
+    // 커스텀 이벤트 발생
+    document.dispatchEvent(sdkLoadedEvent);
 };
