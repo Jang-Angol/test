@@ -3,7 +3,7 @@ class OrderPaymentWidget {
     // 결제위젯 객체 초기화
     constructor(clientKey, customerKey) {
         // sdk 초기화
-        tosspayments = TossPayments(clientKey);
+        const tosspayments = TossPayments(clientKey);
         this.widget = tosspayments.widgets({ customerKey });
     }
 
