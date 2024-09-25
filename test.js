@@ -2,6 +2,7 @@
 class OrderPaymentWidget {
     // 결제위젯 객체 초기화
     constructor(clientKey, customerKey) {
+        const customerKey = (customerKey === "") ? TossPayments.ANONYMOUS : customerKey ;
         // sdk 초기화
         const tosspayments = TossPayments(clientKey);
         this.widget = tosspayments.widgets({ customerKey });
