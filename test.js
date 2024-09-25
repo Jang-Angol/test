@@ -8,8 +8,8 @@ class OrderPaymentWidget {
     }
 
     // 결제금액 설정
-    setAmount(currency, amount) {
-        this.widget.setAmount({ value: amount, currency: currency });
+    async setAmount(currency, amount) {
+        await this.widget.setAmount({ value: amount, currency: currency });
     }
 
     // 결제위젯 UI 렌더링
