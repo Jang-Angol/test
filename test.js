@@ -24,15 +24,16 @@ class OrderPaymentWidget {
     }
 
     // 결제요청
-    requestPayment(orderId, orderName, successUrl, failUrl, taxFreeAmount, extraReqData) {
+    requestPayment(orderId, orderName, successUrl, failUrl, customerEmail, customerName, customerMobilePhone, taxFreeAmount) {
         try {
             this.widget.requestPayment({
                 orderId: orderId,
                 orderName: orderName,
                 successUrl: successUrl,
                 failUrl: failUrl,
-                customerEmail: extraReqData.customerEmail,
-                customerName: extraReqData.customerName,
+                customerEmail: customerEmail,
+                customerName: customerName,
+                customerMobilePhone: customerMobilePhone,
                 taxFreeAmount: taxFreeAmount
             });
         } catch (error) {
