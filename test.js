@@ -26,6 +26,7 @@ class OrderPaymentWidget {
     // 결제요청
     requestPayment(orderId, orderName, successUrl, failUrl, customerEmail, customerName, customerMobilePhone, taxFreeAmount) {
         try {
+            console.log(orderId, orderName, successUrl, failUrl, customerEmail, customerName, customerMobilePhone, taxFreeAmount);
             this.widget.requestPayment({
                 orderId: orderId,
                 orderName: orderName,
