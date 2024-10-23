@@ -8,8 +8,9 @@ class OrderPaymentWidget {
         customerKey = (customerKey === "") ? TossPayments.ANONYMOUS : customerKey ;
         this.widget = tosspayments.widgets({ customerKey,
             brandpay: {
-              redirectUrl: window.location.origin + "/Pay/Recv/landingbrand/RequestAccessToken.php?partnerid=CF_cmulbi5cp5" + 
-          } });
+              redirectUrl: window.location.origin + "/Pay/Recv/landingbrand/RequestAccessToken.php?partnerid=CF_cmulbi5cp5"
+            }
+        });
     }
 
     // 결제금액 설정
