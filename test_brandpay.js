@@ -31,7 +31,7 @@ class OrderPaymentWidget {
     requestPayment(orderId, orderName, successUrl, failUrl, customerEmail, customerName, customerMobilePhone, taxFreeAmount) {
         try {
             console.log(orderId, orderName, successUrl, failUrl, customerEmail, customerName, customerMobilePhone, taxFreeAmount);
-            return this.widget.requestPayment({
+            this.widget.requestPayment({
                 orderId: orderId,
                 orderName: orderName,
                 successUrl: successUrl,
@@ -42,7 +42,7 @@ class OrderPaymentWidget {
                 taxFreeAmount: taxFreeAmount
             });
         } catch (error) {
-            console.error('Payment request failed:', error);
+            console.log(error.message);
         }
     }
 }
