@@ -31,7 +31,7 @@ class OrderPaymentWidget {
     requestPayment(orderId, orderName, successUrl, failUrl, customerEmail, customerName, customerMobilePhone, taxFreeAmount) {
         try {
             console.log(orderId, orderName, successUrl, failUrl, customerEmail, customerName, customerMobilePhone, taxFreeAmount);
-            this.widget.requestPayment({
+            return this.widget.requestPayment({
                 orderId: orderId,
                 orderName: orderName,
                 successUrl: successUrl,
