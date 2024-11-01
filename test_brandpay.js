@@ -29,7 +29,6 @@ class OrderPaymentWidget {
 
     // 결제요청
     requestPayment(orderId, orderName, successUrl, failUrl, customerEmail, customerName, customerMobilePhone, taxFreeAmount) {
-        try {
             console.log(orderId, orderName, successUrl, failUrl, customerEmail, customerName, customerMobilePhone, taxFreeAmount);
             this.widget.requestPayment({
                 orderId: orderId,
@@ -40,10 +39,7 @@ class OrderPaymentWidget {
                 customerName: customerName,
                 customerMobilePhone: customerMobilePhone,
                 taxFreeAmount: taxFreeAmount
-            });
-        } catch (error) {
-            console.log(error.message);
-        }
+            }).catch(function (error) { console.log(error.message);});
     }
 }
 
