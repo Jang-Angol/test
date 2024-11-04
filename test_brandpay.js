@@ -28,16 +28,17 @@ class OrderPaymentWidget {
     }
 
     // 결제요청
-    requestPayment(orderId, orderName, successUrl, failUrl, customerEmail, customerName, customerMobilePhone, taxFreeAmount) {
+    requestPayment(payForm) {
+            
             return this.widget.requestPayment({
-                orderId: orderId,
-                orderName: orderName,
-                successUrl: successUrl,
-                failUrl: failUrl,
-                customerEmail: customerEmail,
-                customerName: customerName,
-                customerMobilePhone: customerMobilePhone,
-                taxFreeAmount: taxFreeAmount
+                orderId: payForm.order_id,
+                orderName: payForm.goods_name,
+                successUrl: payForm.returnSuccessUrl, // 앱 내부에서 성공처리할 엔드포인트
+                failUrl: payForm.returnFailUrl, // 앱 내부에서 실패처리할 엔드포인트
+                customerEmail: payForm.buyer_email,
+                customerName: payForm.buyer_name,
+                customerMobilePhone: payForm.buyer_phone.replace(/-/g, ''),
+                taxFreeAmount: Number(payForm.amount_tax_free)
             })
     }
 }
