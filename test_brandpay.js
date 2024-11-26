@@ -20,11 +20,7 @@ class OrderPaymentWidget {
 
     // 결제위젯 UI 렌더링
     async renderPaymentWidget(divId, variantKey) {
-        try {
-            return await this.widget.renderPaymentMethods({ selector: divId, variantKey: variantKey });
-        } catch (error) {
-            console.error('Failed to render payment widget:', error);
-        }
+        return await this.widget.renderPaymentMethods({ selector: divId, variantKey: variantKey });
     }
 
     // 결제요청
