@@ -5,6 +5,8 @@ class OrderPaymentWidget {
         // sdk 초기화
         const tosspayments = TossPayments(clientKey);
 
+        let customerKey = ""
+        
         // customerKey를 위한 회원정보 획득
         /** https://developers.cafe24.com/app/front/common/frontsdk#title4
         CAFE24API.getCustomerInfo(function(err, res) {
@@ -18,7 +20,7 @@ class OrderPaymentWidget {
         });
         */
 
-        let customerKey = (customerKey === "") ? TossPayments.ANONYMOUS : customerKey ;
+        customerKey = (customerKey === "") ? TossPayments.ANONYMOUS : customerKey ;
         this.widget = tosspayments.widgets({ customerKey,
             brandpay: {
               redirectUrl: window.location.origin + "/Pay/Recv/landingbrand/RequestAccessToken.php?partnerid=CF_cmulbi5cp5"
