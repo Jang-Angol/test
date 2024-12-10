@@ -5,7 +5,7 @@ class OrderPaymentWidget {
         // sdk 초기화
         const tosspayments = TossPayments(clientKey);
 
-        let customerKey = ""
+        let customerKey = "isjang@ectopsue1100m01";
         
         // customerKey를 위한 회원정보 획득
         /** https://developers.cafe24.com/app/front/common/frontsdk#title4
