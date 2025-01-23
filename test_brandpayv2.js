@@ -6,7 +6,7 @@
             constructor(clientKey) {
                 const tosspayments = TossPayments(clientKey);
 
-                let customerKey = "isjang@ectopsue1100m01";
+                let customerKey = "cafe24test@ectqued1758";
                 
                 // customerKey를 위한 회원정보 획득
                 /** https://developers.cafe24.com/app/front/common/frontsdk#title4
